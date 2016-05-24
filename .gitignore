@@ -4,6 +4,11 @@ $ cat .gitignore
 .DS_Store
 node_modules
 .idea
+key.txt
+src
+package.json
+README.md
+webpack.config.js
 
 # Use wildcards as well
 *~
