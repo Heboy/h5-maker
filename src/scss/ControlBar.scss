@@ -1,0 +1,59 @@
+$tabHeight: 400px;
+$tabHeadHeight: 40px;
+$tabBodyHeight: $tabHeight - $tabHeadHeight;
+$tabHeadBackgroundColor: #00bcd5;
+.control-bar {
+  position: fixed;
+  top:0;
+  right: 0;
+  text-align: left;
+  width: 260px;
+  height: 100%;
+  border: 1px solid #b0b0b0;
+  box-sizing: border-box;
+  overflow-y: hidden;
+  background-color: white;
+  vertical-align: top;
+  box-shadow: 0 0 2px 1px #E7E7E7;
+  .tab-head {
+    display: flex;
+    padding: 0;
+    height: $tabHeadHeight;
+    font-size: 0;
+    background-color: $tabHeadBackgroundColor;
+    border-bottom: none;
+    li{
+      display: flex;
+      flex: 1;
+    }
+    .title {
+      display: inline-block;
+      cursor: pointer;
+      line-height: $tabHeadHeight;
+      height: $tabHeadHeight;
+      width: 100%;
+      font-size: 16px;
+      color: white;
+      box-sizing: border-box;
+      text-align: center;
+      &.current {
+        border-bottom: 2px solid #feff97;
+      }
+    }
+  }
+  .tab-body {
+    height: $tabBodyHeight;
+    padding: 0 15px;
+    border-top: none;
+    margin-top: -1px;
+    box-sizing: border-box;
+    overflow: auto;
+    .tab-main {
+      display: none;
+      font-size: 14px;
+      &.current{
+        display: block;
+      }
+    }
+  }
+}

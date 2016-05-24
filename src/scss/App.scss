@@ -1,0 +1,53 @@
+html, body {
+  min-width: 100%;
+  min-height: 100%;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  font-family: "Helvetica Neue", Helvetica, Arial, 'Microsoft YaHei UI', sans-serif;
+  -webkit-user-select: none;
+  user-select: none;
+  .main {
+    margin: 0 270px 0 130px;
+    padding: 10px;
+  }
+  .control-bar {
+    border-right: none;
+    border-top: none;
+    border-bottom: none;
+  }
+  .stage {
+    overflow: hidden;
+    width: 400px;
+    margin: 0 auto;
+  }
+  .element-bar{
+    float: left;
+    width: 70px;
+  }
+  .page{
+    float: left;
+  }
+}
+
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track-piece {
+  background-color: #CCCCCC;
+  -webkit-border-radius: 6px;
+}
+
+::-webkit-scrollbar-thumb:vertical {
+  height: 5px;
+  background-color: #999999;
+  -webkit-border-radius: 6px;
+}
+
+::-webkit-scrollbar-thumb:horizontal {
+  width: 5px;
+  background-color: #CCCCCC;
+  -webkit-border-radius: 6px;
+}

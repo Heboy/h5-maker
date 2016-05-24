@@ -1,0 +1,60 @@
+$resizePointWidth: 10px;
+.element {
+  padding: 7px;
+  position: absolute;
+  display: inline-block;
+  text-align: left;
+  //内容禁止选择
+  -webkit-user-select: none;
+  user-select: none;
+  .remove-point {
+    display: none;
+    position: absolute;
+    line-height: 0;
+    top: 0;
+    right: -8px;
+    color: #909090;
+    cursor: pointer;
+  }
+  &.active {
+    border: 2px dotted #8aa7ff;
+    padding: 5px;
+    .resize-point {
+      width: $resizePointWidth;
+      height: $resizePointWidth;
+      border-radius: $resizePointWidth;
+      background-color: red;
+      position: absolute;
+      cursor: move;
+      &.right-bottom {
+        bottom: -$resizePointWidth/2;
+        right: -$resizePointWidth/2;
+        cursor: se-resize;
+      }
+      &.right {
+        top: 50%;
+        right: -$resizePointWidth/2;
+        margin-top: -$resizePointWidth/2;
+        cursor: e-resize;
+      }
+      &.left {
+        top: 50%;
+        left: -$resizePointWidth/2;
+        margin-top: -$resizePointWidth/2;
+      }
+      &.bottom {
+        left: 50%;
+        bottom: -$resizePointWidth/2;
+        margin-left: -6px;
+        cursor: n-resize;
+      }
+    }
+    .remove-point {
+      display: block;
+    }
+  }
+  .full {
+    width: 100%;
+    height: 100%;
+  }
+}

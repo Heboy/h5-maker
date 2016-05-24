@@ -1,0 +1,45 @@
+.page-bar {
+  width: 120px;
+  padding: 4px;
+  background-color: white;
+  height: 100%;
+  position: fixed;
+  left: 0;
+  top: 0;
+  overflow: auto;
+  .m_page {
+    position: relative;
+    width: 100px;
+    height: 120px;
+    background-color: white;
+    border: 1px solid lightgray;
+    border-radius: 4px;
+    margin: 10px auto;
+    font-size: 24px;
+    line-height: 120px;
+    vertical-align: middle;
+    text-align: center;
+    color: grey;
+    &.active{
+      background-color: lightgray;
+    }
+    &.add{
+      font-size: 48px;
+      cursor: pointer;
+    }
+    .remove-point{
+      display: none;
+    }
+    &:hover{
+      .remove-point {
+        display: block;
+        cursor: pointer;
+        position: absolute;
+        height: 20px;
+        line-height: 20px;
+        right: 0;
+        top: 0;
+      }
+    }
+  }
+}
