@@ -38,7 +38,7 @@ function Page() {
     return {
         elementsEntity: Immutable.Map({
             elements: Immutable.List(),
-            activeIndex: 0
+            activeIndex: null
         }),//对elements的引用
         elementType: Values.ELEMENT.TYPE.PAGE,
         backgroundColor: null,

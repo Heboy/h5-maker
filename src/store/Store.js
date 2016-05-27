@@ -30,8 +30,10 @@ const appendPropsToPage = store => next => action => {
         let elementsEntity = page.get('elementsEntity');
         let elementsActiveIndex = elementsEntity.get('activeIndex');
         let elements = elementsEntity.get('elements');
-        store.getState().elementsEntity = elementsEntity;//用page.elements替换state中的elements
-        store.getState().control = elements === undefined ? Immutable.Map() : elements.get(elementsActiveIndex).get('controlProps');//设置controlBar的值
+        //用page.elements替换state中的elements
+        store.getState().elementsEntity = elementsEntity;
+        //设置controlBar的值
+        store.getState().control = elements === undefined || elementsActiveIndex === null ? Immutable.Map() : elements.get(elementsActiveIndex).get('controlProps');
     }
     else {
         page = page.set('elementsEntity', store.getState().elementsEntity);
