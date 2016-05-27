@@ -7,7 +7,6 @@ import Values from './Values';
 
 function Element() {
     return {
-        preview: false,
         width: '0px',
         height: '0px',
         left: '0px',

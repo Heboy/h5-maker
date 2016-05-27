@@ -83,8 +83,8 @@ const App = React.createClass({
                 <div className="main">
                     <div className="stage">
                         <ElementBar/>
-                        <Page currentPage={currentPage} elements={elements} currentElement={currentElement}
-                              preview={control.get('preview')}/>
+                        <Page elementsEntity={elementsEntity}
+                              backgroundColor={currentPage.get('backgroundColor')}/>
                     </div>
                 </div>
             </div>

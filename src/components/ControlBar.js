@@ -19,6 +19,18 @@ class ControlBar extends React.Component {
 
     constructor(props) {
         super(props);
+        this.state = {
+            index: 0
+        };
+    }
+
+    componentWillReceiveProps(nextProps) {
+        if (this.props.type !== nextProps.type) {
+            this.setState({
+                index: 0
+            });
+            return true;
+        }
     }
 
     render() {
@@ -37,25 +49,28 @@ class ControlBar extends React.Component {
     }
 
     buildTab(tabHeadArr, tabBodyArr) {
+        let self = this;
         tabHeadArr = tabHeadArr.map(function (head, index) {
             return (
                 <li>
-                    <span className={ClassName('title',{current:index==0})}>{head}</span>
+                    <span className={ClassName('title',{show:self.state.index==index})} data-index={index}>
+                        {head}
+                    </span>
                 </li>)
         });
         tabBodyArr = tabBodyArr.map(function (body, index) {
             return (
-                <div className={ClassName('tab-main',{current:index==0})}>
+                <div className={ClassName('tab-main', {show: self.state.index == index})}>
                     {body}
                 </div>
             )
         });
         return (
             <div className={ClassName('control-bar', this.props.className)}>
-                <ul ref="tabHead" className="tab-head" onClick={this.switchTab.bind(this)}>
+                <ul className="tab-head" onClick={this.switchTab.bind(this)}>
                     {tabHeadArr}
                 </ul>
-                <div className="tab-body" ref="tabBody">
+                <div className="tab-body">
                     {tabBodyArr}
                 </div>
             </div>
@@ -63,21 +78,11 @@ class ControlBar extends React.Component {
     }
 
     switchTab(e) {
-        let len = e.currentTarget.children.length;
-        let tabHead = this.refs.tabHead;
-        let tabBody = this.refs.tabBody;
-        let index = null;
-        for (let i = 0; i < len; i++) {
-            if (e.target === e.currentTarget.children[i].firstChild) {
-                index = i;
-                break;
-            }
-        }
-        if (index !== null) {
-            tabBody.querySelector('.current').classList.remove('current');
-            tabHead.querySelector('.current').classList.remove('current');
-            tabHead.children[index].firstChild.classList.add('current');
-            tabBody.children[index].classList.add('current');
+        let target = e.target;
+        if (target.dataset.index) {
+            this.setState({
+                index: parseInt(target.dataset.index)
+            });
         }
     }
 
@@ -171,7 +176,7 @@ class ControlBar extends React.Component {
         )
     }
 
-    backgroundColor(){
+    backgroundColor() {
         return (
             <div key="control-bar-text-color">
                 <p>背景颜色：</p>
@@ -204,7 +209,7 @@ class ControlBar extends React.Component {
         Store.dispatch(ControlAction.setTextColor(color));
     }
 
-    chooseBackgroundColor(color){
+    chooseBackgroundColor(color) {
         Store.dispatch(PagesAction.setBackgroundColor(color));
     }
 }

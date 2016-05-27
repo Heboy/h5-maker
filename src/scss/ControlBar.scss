@@ -36,7 +36,7 @@ $tabHeadBackgroundColor: #00bcd5;
       color: white;
       box-sizing: border-box;
       text-align: center;
-      &.current {
+      &.show {
         border-bottom: 2px solid #feff97;
       }
     }
@@ -51,7 +51,7 @@ $tabHeadBackgroundColor: #00bcd5;
     .tab-main {
       display: none;
       font-size: 14px;
-      &.current{
+      &.show{
         display: block;
       }
     }

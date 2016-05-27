@@ -53,8 +53,6 @@ class ElementBar extends React.Component {
     }
 
     saveHandle(e){
-        let elements = Store.getState().elements.toJSON();
-        let control = Store.getState().control.toJSON();
         let pagesEntity = JSON.stringify(Store.getState().pagesEntity.toJSON());
         localStorage.setItem('h5-by-soup-elements',pagesEntity);
         window.open('/H5Run/index.html');

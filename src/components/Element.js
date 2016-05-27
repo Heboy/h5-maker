@@ -29,8 +29,6 @@ class Element extends React.Component {
         super(props);
     }
 
-    //shouldComponentUpdate永远都不会调用，因为父元素中不断初始化新Element组件
-
     render() {
         return (
             <div className={ClassName('element', this.props.className)}
@@ -62,10 +60,10 @@ class Element extends React.Component {
         };
         if (this.props.preview === true) {
             let previewStyle = {};
-            previewStyle.animationName = this.props.element.controlProps.get('animation');
-            previewStyle.animationDuration = this.props.element.controlProps.get('duration');
-            previewStyle.animationTimmingFunction = 'ease';
-            previewStyle.animationDelay = this.props.element.controlProps.get('delay');
+            previewStyle.animationName = this.props.element.get('controlProps').get('animation');
+            previewStyle.animationDuration = this.props.element.get('controlProps').get('duration');
+            previewStyle.animationTimingFunction = 'ease';
+            previewStyle.animationDelay = this.props.element.get('controlProps').get('delay');
             return Object.assign(baseStyle, previewStyle);
         }
         return baseStyle;

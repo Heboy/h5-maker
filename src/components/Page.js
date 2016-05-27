@@ -15,6 +15,7 @@ class Page extends React.Component {
 
     constructor(props) {
         super(props);
+        this.prevActiveElement = null;
         //内部属性，用来实现移动与缩放
         this.currentElementDom = null;
         this.tmpClientX = null;//element上一次点击位置
@@ -30,17 +31,11 @@ class Page extends React.Component {
     }
 
     shouldComponentUpdate(nextProps, nextState) {
-        if (this.props.elements !== nextProps.elements) {
+        if (this.props.elementsEntity !== nextProps.elementsEntity) {
             //重新渲染会阻止move或resize
             return true;
         }
-        if (this.props.currentElement !== nextProps.currentElement) {
-            return true;
-        }
-        if (this.props.currentPage !== nextProps.currentPage) {
-            return true;
-        }
-        if (nextProps.preview === true) {
+        else if (this.props.backgroundColor !== nextProps.backgroundColor) {
             return true;
         }
         return false;
@@ -48,20 +43,29 @@ class Page extends React.Component {
 
     style() {
         return {
-            backgroundColor: this.props.currentPage.get('backgroundColor')
+            backgroundColor: this.props.backgroundColor
         }
     }
 
     render() {
         let self = this;
-        let elements = this.props.elements.map(function (element, index) {
+        let activeIndex = this.props.elementsEntity.get('activeIndex');
+        let elements = this.props.elementsEntity.get('elements').map(function (element, index) {
             let className = '';
-            let preview = false;
-            if (element === self.props.currentElement) {
+            if (index === activeIndex) {
                 className = 'active';
-                preview = self.props.preview;
+                //预览的条件
+                if (self.prevActiveElement !== null &&
+                    self.prevActiveElement.get('rid') === element.get('rid') &&
+                    self.prevActiveElement.get('controlProps') !== element.get('controlProps') &&
+                    element.get('controlProps').get('preview') === true) {
+
+                    self.prevActiveElement = element;
+                    return self.buildElementByType(element, className, true);
+                }
+                self.prevActiveElement = element;
             }
-            return self.buildElementByType(element, className, preview);
+            return self.buildElementByType(element, className, false);
         });
         return (
             <div onMouseMove={this.mouseMoveHandle.bind(this)}
@@ -201,11 +205,9 @@ class Page extends React.Component {
 
 }
 
-Page.defaultProps = {
-    elements: [],
-    currentElement: React.PropTypes.object,
-    currentPage: React.PropTypes.object,
-    preview: React.PropTypes.bool
+Page.propTypes = {
+    className: React.PropTypes.string,
+    pagesEntity: React.PropTypes.object
 };
 
 module.exports = Page;
