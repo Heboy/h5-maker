@@ -4,6 +4,10 @@
   "entry": {
     "index": "./src/entry/index.jsx"
   },
+  "scripts":{
+    "dev": "set NODE_ENV=dev&& webpack -w",
+    "production": "set NODE_ENV=production&& webpack"
+  },
   "dependencies": {
     "classname": "0.0.0",
     "immutable": "^3.7.6",

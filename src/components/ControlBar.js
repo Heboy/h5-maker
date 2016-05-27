@@ -53,7 +53,9 @@ class ControlBar extends React.Component {
         tabHeadArr = tabHeadArr.map(function (head, index) {
             return (
                 <li>
-                    <span className={ClassName('title',{show:self.state.index==index})} data-index={index}>
+                    <span className={ClassName('title',{show:self.state.index==index})}
+                          key={index}
+                          data-index={index}>
                         {head}
                     </span>
                 </li>)

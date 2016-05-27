@@ -1,32 +1,16 @@
-/**
- * Created by Soup Tang on 2015/8/26.
- */
-var webpack = require("webpack");
-var path = require('path');
+'use strict'
+var dev = require('./webpack.dev');
+var production = require('./webpack.production');
 
-module.exports = {
-    entry: {app: './src/components/App.js'},
-    output: {
-        path: __dirname + '/dist',
-        filename: '[name].bundle.js'
-    },
-    devtool: 'eval',
-    module: {
-        loaders: [
-            {test: /\.css$/, loader: 'style!css'},
-            {test: /.(png|jpg)$/, loader: "url-loader?limit=100000"},
-            {test: /\.js$/, loader: "babel-loader",query: {presets:['react','es2015']}},
-            {test: /\.scss$/, loader: "style!css!sass"}
-        ]
-    },
-    plugins: [
-        //new webpack.DefinePlugin({
-        //    //"process.env.NODE_ENV": JSON.stringify("dev")
-        //    "process.env.NODE_ENV": JSON.stringify("production")
-        //}),
-        //new webpack.optimize.UglifyJsPlugin({
-        //    sourceMap: false,
-        //    mangle: false
-        //})
-    ]
-};
+if (process.env.NODE_ENV == 'production') {
+    console.log('webpack production');
+    module.exports = production;
+}
+if (process.env.NODE_ENV == 'dev') {
+    console.log('webpack dev');
+    module.exports = dev;
+}
+if(process.env.NODE_ENV == 'server'){
+    console.log('webpack server');
+    module.exports = server;
+}
