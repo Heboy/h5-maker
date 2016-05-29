@@ -40,7 +40,7 @@ const App = React.createClass({
         window.addEventListener('keydown', function (e) {
             switch (e.keyCode) {
                 case 46://删除
-                    Store.dispatch(ElementsAction.delete());
+                    Store.dispatch(ElementsAction.doDelete());
                     break;
                 default:
                     console.log(e.keyCode)

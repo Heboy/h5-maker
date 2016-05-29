@@ -85,6 +85,13 @@ module.exports = function (state = {}, action) {
             }
             return elementsEntity;
 
+        case Values.CONTROL.SET_FONT_SIZE:
+            if (activeIndex !== null) {
+                element = elements.get(activeIndex).set('fontSize', action.size);
+                elements = elements.set(activeIndex, element);
+                elementsEntity = elementsEntity.set('elements', elements);
+            }
+            return elementsEntity;
         default:
             return elementsEntity;
     }

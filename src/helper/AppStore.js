@@ -53,7 +53,8 @@ module.exports = {
             action.type === Values.CONTROL.SET_DURATION ||
             action.type === Values.CONTROL.SET_TEXT_ALIGN ||
             action.type === Values.CONTROL.SET_ZINDEX ||
-            action.type === Values.CONTROL.SET_TEXT_COLOR
+            action.type === Values.CONTROL.SET_TEXT_COLOR ||
+            action.type === Values.CONTROL.SET_FONT_SIZE
     },
 
     /**

@@ -56,7 +56,8 @@ class Element extends React.Component {
             top: this.props.element.get('top'),
             zIndex: this.props.element.get('zIndex'),
             textAlign: this.props.element.get('controlProps').get('textAlign'),
-            color:this.props.element.get('controlProps').get('fontColor')
+            fontSize: this.props.element.get('controlProps').get('fontSize'),
+            color: this.props.element.get('controlProps').get('fontColor')
         };
         if (this.props.preview === true) {
             let previewStyle = {};

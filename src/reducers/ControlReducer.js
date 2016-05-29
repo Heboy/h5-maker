@@ -35,6 +35,9 @@ module.exports = function (state = [], action) {
         case Values.CONTROL.SET_TEXT_COLOR:
             control = control.set('fontColor', action.color);
             return control;
+        case Values.CONTROL.SET_FONT_SIZE:
+            control = control.set('fontSize', action.size);
+            return control;
         default:
             return control;
     }

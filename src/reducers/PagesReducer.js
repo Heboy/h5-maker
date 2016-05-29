@@ -16,12 +16,12 @@ module.exports = function (state = {}, action) {
     switch (action.type) {
         case Values.APP.INIT:
             pages = Immutable.List();
-            page = Immutable.Map(new Page()).set('rid',AppStore.uniqueId());
+            page = Immutable.Map(new Page()).set('rid', AppStore.uniqueId());
             pages = pages.push(page);
             pagesEntity = pagesEntity.set('pages', pages).set('activeIndex', 0);
             return pagesEntity;
         case Values.PAGES.ADD:
-            page = Immutable.Map(new Page()).set('rid',AppStore.uniqueId());
+            page = Immutable.Map(new Page()).set('rid', AppStore.uniqueId());
             pages = pages.push(page);
             pagesEntity = pagesEntity.set('pages', pages);
             return pagesEntity;

@@ -38,7 +38,7 @@ class ControlBar extends React.Component {
             case Values.ELEMENT.TYPE.PAGE:
                 return this.buildTab(['样式'], [this.backgroundColor()]);
             case Values.ELEMENT.TYPE.TEXT:
-                return this.buildTab(['样式', '动画'], [[this.fontTextAlign(), this.zIndex(), this.fontColor()],
+                return this.buildTab(['样式', '动画'], [[this.fontTextAlign(), this.zIndex(), this.fontSize(), this.fontColor()],
                     [this.animation(), this.animationDuration(), this.animationDelay()]]);
             case Values.ELEMENT.TYPE.IMAGE:
                 return this.buildTab(['样式', '动画'], [[this.zIndex()],
@@ -165,7 +165,12 @@ class ControlBar extends React.Component {
 
     fontSize() {
         return (
-            <div>字体大小</div>
+            <div key="control-bar-duration">
+                <p>字体大小：</p>
+                <Select name="duration" clearable={false} value={this.props.fontSize}
+                        options={Values.CONTROL.FONT_SIZE_OPTION}
+                        onChange={this.chooseFontSize}/>
+            </div>
         )
     }
 
@@ -213,6 +218,10 @@ class ControlBar extends React.Component {
 
     chooseBackgroundColor(color) {
         Store.dispatch(PagesAction.setBackgroundColor(color));
+    }
+
+    chooseFontSize(target) {
+        Store.dispatch(PagesAction.setFontSize(target.value));
     }
 }
 

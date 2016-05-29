@@ -2,7 +2,7 @@
   "name": "h5-maker",
   "version": "1.0.0",
   "entry": {
-    "index": "./src/entry/index.jsx"
+    "index": "./src/components/App.js"
   },
   "scripts":{
     "dev": "set NODE_ENV=dev&& webpack -w",

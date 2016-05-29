@@ -28,7 +28,8 @@ module.exports = {
         SET_DURATION: 'SET_DURATION',
         SET_TEXT_ALIGN: 'SET_TEXT_ALIGN',
         SET_TEXT_COLOR: 'SET_TEXT_COLOR',
-        SET_BACKGROUND_COLOR:'SET_BACKGROUND_COLOR',
+        SET_BACKGROUND_COLOR: 'SET_BACKGROUND_COLOR',
+        SET_FONT_SIZE: 'SET_FONT_SIZE',
         ANIMATION_OPTIONS: [
             {
                 label: '无',
@@ -76,6 +77,32 @@ module.exports = {
                 label: '右对齐',
                 value: 'right'
             }
+        ],
+        FONT_SIZE_OPTION: [
+            {
+                label: 12,
+                value: 12
+            },
+            {
+                label: 16,
+                value: 16
+            },
+            {
+                label: 20,
+                value: 20
+            },
+            {
+                label: 24,
+                value: 24
+            },
+            {
+                label: 28,
+                value: 28
+            },
+            {
+                label: 32,
+                value: 32
+            }
         ]
     },
     PAGES: {
@@ -83,7 +110,7 @@ module.exports = {
         DELETE: 'DELETE_PAGE',
         ACTIVE: 'ACTIVE_PAGE',
         ACTIVE_BY_INDEX: 'ACTIVE_BY_INDEX',
-        SET_BACKGROUND_COLOR:'SET_BACKGROUND_COLOR',
-        SAVE:'SAVE'
+        SET_BACKGROUND_COLOR: 'SET_BACKGROUND_COLOR',
+        SAVE: 'SAVE'
     }
 };
