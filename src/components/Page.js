@@ -175,6 +175,15 @@ class Page extends React.Component {
         this.readyResize = false;
     }
 
+    mouseLeaveHandle(e){
+        //停止拖拽或移动
+        if (this.currentElementDom) {
+            Store.dispatch(ElementsAction.save(this.currentElementDom.style.width, this.currentElementDom.style.height, this.currentElementDom.style.left, this.currentElementDom.style.top));
+        }
+        this.readyMove = false;
+        this.readyResize = false;
+    }
+
     mouseMoveHandle(e) {
         if (this.currentElementDom) {
             if (this.readyMove === true && this.readyResize === false) {
