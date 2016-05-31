@@ -12,19 +12,18 @@ import Store from '../store/Store';
 import * as ElementsAction from '../actions/ElementsAction';
 import '../scss/App.scss';
 
-window.store = Store;
+class App extends React.Component {
 
-const App = React.createClass({
-
-    getInitialState(){
-        return {
+    constructor(props) {
+        super(props);
+        this.state = {
             pagesEntity: Immutable.Map(),
             elementsEntity: Immutable.Map(),
             control: Immutable.Map()
-        };
-    },
+        }
+    }
 
-    componentWillMount(){
+    componentWillMount() {
         if (true) {
             //创建初始化
             Store.dispatch(ElementsAction.init());
@@ -33,10 +32,10 @@ const App = React.createClass({
         else {
             //更新初始化
         }
-    },
+    }
 
     //初始化的时候设置对store的侦听
-    componentDidMount(){
+    componentDidMount() {
         window.addEventListener('keydown', function (e) {
             switch (e.keyCode) {
                 case 46://删除
@@ -46,8 +45,8 @@ const App = React.createClass({
                     console.log(e.keyCode)
             }
         });
-        Store.subscribe(this.onStateChange);
-    },
+        Store.subscribe(this.onStateChange.bind(this));
+    }
 
     shouldComponentUpdate(nextProps, nextState) {
         if (this.state.elementsEntity !== nextState.elementsEntity) {
@@ -60,9 +59,9 @@ const App = React.createClass({
             return true;
         }
         return false;
-    },
+    }
 
-    render(){
+    render() {
         let {control,pagesEntity,elementsEntity} = Store.getState();
         let pages = pagesEntity.get('pages');
         let currentPage = pages.get(pagesEntity.get('activeIndex'));
@@ -89,13 +88,13 @@ const App = React.createClass({
                 </div>
             </div>
         );
-    },
+    }
 
-    onStateChange(){
+    onStateChange() {
         this.setState(Store.getState())
-    },
+    }
 
-    setControlBar(){
+    setControlBar() {
         var control = Store.getState().control;
         return (
             <ControlBar open={control.open} animation={control.animation}
@@ -103,9 +102,9 @@ const App = React.createClass({
                         maxZIndex={Store.getState().elements.size}
                         animationOptions={control.animationOptions}/>
         )
-    },
+    }
 
-    setElement(){
+    setElement() {
         return Store.getState().elements.map(function (element, index, thisArray) {
             var className = ClassName(element.get('controlBarProps').animation, element.get('isActive') ? 'active' : '');
             switch (element.get('elementType')) {
@@ -144,7 +143,7 @@ const App = React.createClass({
             return undefined;
         });
     }
-});
+}
 
 ReactDom.render(
     <App/>,

@@ -35,11 +35,53 @@ module.exports = {
                 label: '无',
                 value: ''
             }, {
-                label: '从上到下',
-                value: 'moveFromTop'
+                label: '向左',
+                value: 'moveToLeft'
+            },{
+                label: '向左-渐显',
+                value: 'moveToLeftFade'
             }, {
                 label: '从左到右',
                 value: 'moveFromLeft'
+            },{
+                label: '从左到右-渐显',
+                value: 'moveFromLeftFade'
+            }, {
+                label: '向右',
+                value: 'moveToRight'
+            },{
+                label: '向右-渐显',
+                value: 'moveToRightFade'
+            }, {
+                label: '从右向左',
+                value: 'moveFromRight'
+            },{
+                label: '从右向左-渐显',
+                value: 'moveFromRightFade'
+            }, {
+                label: '向上',
+                value: 'moveToTop'
+            },{
+                label: '向上-渐显',
+                value: 'moveToTopFade'
+            }, {
+                label: '从上到下',
+                value: 'moveFromTop'
+            }, {
+                label: '从上到下-渐显',
+                value: 'moveFromTopFade'
+            }, {
+                label: '向下',
+                value: 'moveToBottom'
+            },{
+                label: '向下-渐显',
+                value: 'moveToBottomFade'
+            }, {
+                label: '从下到上',
+                value: 'moveFromBottom'
+            }, {
+                label: '从下到上-渐显',
+                value: 'moveFromBottomFade'
             }
         ],
         DURATION_OPTION: [

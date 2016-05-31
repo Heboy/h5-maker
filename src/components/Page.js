@@ -69,6 +69,7 @@ class Page extends React.Component {
         });
         return (
             <div onMouseMove={this.mouseMoveHandle.bind(this)}
+                 onMouseLeave={this.mouseUpHandle.bind(this)}
                  onMouseUp={this.mouseUpHandle.bind(this)}
                  onMouseDown={this.mouseDownHandle.bind(this)}
                  style={this.style()}
@@ -202,7 +203,6 @@ class Page extends React.Component {
             }
         }
     }
-
 }
 
 Page.propTypes = {
