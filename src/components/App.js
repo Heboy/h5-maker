@@ -3,7 +3,7 @@
  */
 import React from 'react';
 import ReactDom from 'react-dom';
-import Immutable from 'Immutable';
+import Immutable from 'immutable';
 import Page from './Page';
 import ElementBar from './ElementBar';
 import PageList from './PageList';
@@ -19,8 +19,10 @@ class App extends React.Component {
         this.state = {
             pagesEntity: Immutable.Map(),
             elementsEntity: Immutable.Map(),
-            control: Immutable.Map()
-        }
+            control: Immutable.Map(),
+            errorBarComponent: null,
+            loadingComponent: null
+        };
     }
 
     componentWillMount() {
@@ -58,6 +60,9 @@ class App extends React.Component {
         else if (this.state.pagesEntity !== nextState.pagesEntity) {
             return true;
         }
+        else if (this.state.errorBarComponent !== nextState.errorBarComponent) {
+            return true;
+        }
         return false;
     }
 
@@ -86,6 +91,7 @@ class App extends React.Component {
                               backgroundColor={currentPage.get('backgroundColor')}/>
                     </div>
                 </div>
+                <a id="error-bar" value="Error"></a>
             </div>
         );
     }

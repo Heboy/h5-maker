@@ -5,7 +5,7 @@ import {createStore,applyMiddleware} from 'redux';
 import reducer from '../reducers/App';
 import Values from '../helper/Values';
 import AppStore from '../helper/AppStore';
-import Immutable from 'Immutable';
+import Immutable from 'immutable';
 
 const logger = store => next => action => {
     console.group(action.type);

@@ -8,6 +8,7 @@ module.exports = {
     uniqueId(){
         return id++;
     },
+
     /**
      *
      * @param element

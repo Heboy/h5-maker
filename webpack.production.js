@@ -4,7 +4,10 @@
 var webpack = require("webpack");
 
 module.exports = {
-    entry: {app: './src/components/App.js'},
+    entry: {
+        app: './src/components/App.js',
+        vendor: ["react", "react-dom","immutable"]
+    },
     output: {
         path: __dirname + '/dist',
         filename: '[name].bundle.min.js'
@@ -24,6 +27,10 @@ module.exports = {
         new webpack.optimize.UglifyJsPlugin({
             sourceMap: false,
             mangle: false
+        }),
+        new webpack.optimize.CommonsChunkPlugin({
+            name: 'vendor',
+            filename:'vendor.js'
         })
     ]
 };
