@@ -5,7 +5,7 @@ var webpack = require("webpack");
 
 module.exports = {
     entry: {
-        app: './src/components/App.js',
+        app: './src/components/Entry.js',
         vendor: ["react", "react-dom", "immutable"]
     },
     output: {
@@ -21,9 +21,9 @@ module.exports = {
         ]
     },
     plugins: [
-        //new webpack.DefinePlugin({
-        //    "process.env.NODE_ENV": JSON.stringify("production")
-        //}),
+        new webpack.DefinePlugin({
+            "process.env.NODE_ENV": JSON.stringify("production")
+        }),
         new webpack.optimize.CommonsChunkPlugin({
             name: 'vendor',
             filename: 'vendor.min.js'

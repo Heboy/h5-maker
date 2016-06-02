@@ -89,7 +89,7 @@ class Page extends React.Component {
                              key={key}
                              preview={preview}
                              className={className}
-                             onMouseUp={self.activeElement.bind(this)}
+                             onMouseDown={self.activeElement.bind(this)}
                              prepareResize={self.prepareResize.bind(self)}>
                         <img className="full" draggable="false" src={element.get('src')}/>
                     </Element>
@@ -100,13 +100,12 @@ class Page extends React.Component {
                              key={key}
                              preview={preview}
                              className={className}
-                             onMouseUp={self.activeElement.bind(this)}
+                             onMouseDown={self.activeElement.bind(this)}
                              prepareResize={self.prepareResize.bind(self)}>
                         <Text value={element.get('value')}/>
                     </Element>
                 );
             default:
-                console.log(element.get('elementType'));
                 return null;
         }
     }
@@ -155,6 +154,7 @@ class Page extends React.Component {
             this.tmpHeight = parseInt(element.clientHeight);
             this.scale = this.tmpWidth / this.tmpHeight;
         }
+        e.stopPropagation();
     }
 
     activeElement(element, e) {
@@ -173,6 +173,7 @@ class Page extends React.Component {
         this.currentElementDom = null;
         this.readyMove = false;
         this.readyResize = false;
+        e.stopPropagation();
     }
 
     mouseLeaveHandle(e){
