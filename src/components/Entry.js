@@ -19,7 +19,16 @@ class Entry extends React.Component{
             ReactDom.render(<App/>,document.querySelector('#app'));
             loadingDom.classList.remove('block');
             ReactDom.unmountComponentAtNode(loadingDom);
-        })
+        });
+        //require.ensure([], function () {
+        //    let ColorSelector = require('./ColorSelector');
+        //    ReactDom.render(
+        //        <ColorSelector color={'#000000'} onChange={function(color){console.log(color)}}/>,
+        //        document.querySelector('#app')
+        //    );
+        //    loadingDom.classList.remove('block');
+        //    ReactDom.unmountComponentAtNode(loadingDom);
+        //})
     }
 
     render(){

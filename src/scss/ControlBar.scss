@@ -4,6 +4,7 @@ $tabBodyHeight: $tabHeight - $tabHeadHeight;
 $tabHeadBackgroundColor: #00bcd5;
 .control-bar {
   position: fixed;
+  z-index: 999;
   top:0;
   right: 0;
   text-align: left;

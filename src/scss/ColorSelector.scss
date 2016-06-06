@@ -1,0 +1,19 @@
+.color-selector {
+  width: 30px;
+  height: 15px;
+  &.active {
+    width: 400px;
+    height: 350px;
+    position: fixed;
+    right: 0;
+    z-index: 1999;
+    .btn-list {
+      position: absolute;
+      right: 5px;
+      bottom: 5px;
+      input{
+        margin-left: 2px;
+      }
+    }
+  }
+}

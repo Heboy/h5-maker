@@ -10,9 +10,9 @@
   },
   "dependencies": {
     "classname": "0.0.0",
-    "color-picker": "https://github.com/Heboy/color-picker.git",
     "immutable": "^3.7.6",
     "react": "^15.0.1",
+    "react-colorpicker": "https://github.com/Heboy/react-colorpicker.git",
     "react-dom": "^15.0.1",
     "react-loading": "0.0.9",
     "react-select": "^1.0.0-beta11",
