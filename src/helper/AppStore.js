@@ -44,7 +44,7 @@ module.exports = {
     },
 
     /**
-     * 是否为element的controlProps赋值
+     * 是否j将control同步到element的controlProps
      * @param action
      * @returns {boolean}
      */
@@ -59,12 +59,23 @@ module.exports = {
     },
 
     /**
+     * 是否将page的controlProps同步到control上
+     * @param action
+     * @returns {boolean}
+     */
+    switchPage(action){
+        return action.type === Values.PAGES.ACTIVE
+    },
+
+    /**
      *
      * @param action
      * @returns {boolean}
      */
-    shouldSetElementsInMiddleware(action){
-        return action.type === Values.PAGES.ACTIVE || action.type === Values.PAGES.DELETE
+    shouldSetElementsControlPropsToControlInMiddleware(action){
+        return action.type === Values.PAGES.ACTIVE ||
+            action.type === Values.PAGES.DELETE ||
+            action.type === Values.ELEMENT.ACTIVE
     }
 
 };

@@ -46,7 +46,7 @@ module.exports = function (state = {}, action) {
 
         case Values.ELEMENT.RELEASE:
             if (activeIndex !== null) {
-                elementsEntity = elementsEntity.set('activeIndex', index);
+                elementsEntity = elementsEntity.set('activeIndex', null);
             }
             return elementsEntity;
 

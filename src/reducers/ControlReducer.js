@@ -38,6 +38,9 @@ module.exports = function (state = [], action) {
         case Values.CONTROL.SET_FONT_SIZE:
             control = control.set('fontSize', action.size);
             return control;
+        case Values.CONTROL.SET_BACKGROUND_COLOR:
+            control = control.set('backgroundColor', action.color);
+            return control;
         default:
             return control;
     }

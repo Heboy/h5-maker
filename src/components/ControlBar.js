@@ -176,8 +176,8 @@ class ControlBar extends React.Component {
     fontColor() {
         return (
             <div key="control-bar-text-color">
-                <p>字体颜色：</p>
-                <ColorSelector color={this.props.fontColor} onChange={this.chooseColor}/>
+                <p className="color-area">字体颜色：</p>
+                <ColorSelector className="color-area" color={this.props.fontColor} onChange={this.chooseColor}/>
             </div>
         )
     }
@@ -185,8 +185,8 @@ class ControlBar extends React.Component {
     backgroundColor() {
         return (
             <div key="control-bar-text-color">
-                <p>背景颜色：</p>
-                <ColorSelector color={this.props.backgroundColor} onChange={this.chooseBackgroundColor}/>,
+                <p className="color-area">背景颜色：</p>
+                <ColorSelector className="color-area" color={this.props.backgroundColor} onChange={this.chooseBackgroundColor}/>
             </div>
         )
     }

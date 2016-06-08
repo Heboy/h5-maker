@@ -71,6 +71,12 @@ class App extends React.Component {
         let currentPage = pages.get(pagesEntity.get('activeIndex'));
         let elements = elementsEntity.get('elements');
         let currentElement = elements.get(elementsEntity.get('activeIndex'));
+        if (currentPage) {
+            window.elements = currentPage.get('elementsEntity').get('elements');
+        }
+        if (currentElement) {
+            window.fontColor = currentElement.get('controlProps').get('fontColor');
+        }
         return (
             <div>
                 <PageList pages={pages} activeIndex={pagesEntity.get('activeIndex')}/>
@@ -80,6 +86,7 @@ class App extends React.Component {
                             animation={control.get('animation')}
                             fontSize={control.get('fontSize')}
                             fontColor={control.get('fontColor')}
+                            backgroundColor={control.get('backgroundColor')}
                             textAlign={control.get('textAlign')}
                             zIndex={elements.indexOf(currentElement)}
                             maxZIndex={elements.size}/>

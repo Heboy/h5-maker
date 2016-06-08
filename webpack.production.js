@@ -6,7 +6,7 @@ var webpack = require("webpack");
 module.exports = {
     entry: {
         app: './src/components/Entry.js',
-        vendor: ["react", "react-dom", "immutable"]
+        vendor: ["react", "react-dom"]
     },
     output: {
         path: __dirname + '/dist',

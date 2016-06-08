@@ -41,7 +41,7 @@ function Page() {
             activeIndex: null
         }),//对elements的引用
         elementType: Values.ELEMENT.TYPE.PAGE,
-        backgroundColor: null,
+        backgroundColor: '#ffffff',
         backgroundImage: null
     }
 }
@@ -49,7 +49,7 @@ function Page() {
 function Control() {
     return {
         preview: false,//控制当前元素的预览，逻辑上不应该放在这，但是elements和pages都不是不可变的
-        backgroundColor: 'white',
+        backgroundColor: '#ffffff',
         backgroundImage: null,
         fontSize: 16,
         fontColor: '#000000',
