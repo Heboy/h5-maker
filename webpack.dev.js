@@ -7,8 +7,7 @@ module.exports = {
     entry: {
         app: './src/components/Entry.js',
         vendor: ["react", "react-dom"],
-        immutable: ["immutable"],
-        normalizr: ["normalizr"]
+        immutable: ["immutable"]
     },
     output: {
         path: __dirname + '/dist',
@@ -31,7 +30,7 @@ module.exports = {
         //    Immutable: 'immutable'
         //}),//这个可以使jquery变成全局变量，妮不用在自己文件require('jquery')了
         new webpack.optimize.CommonsChunkPlugin({
-            names: ['vendor', 'immutable', 'normalizr']
+            names: ['vendor', 'immutable']
         })
     ]
 };

@@ -6,7 +6,8 @@ var webpack = require("webpack");
 module.exports = {
     entry: {
         app: './src/components/Entry.js',
-        vendor: ["react", "react-dom"]
+        vendor: ["react", "react-dom"],
+        immutable: ["immutable"]
     },
     output: {
         path: __dirname + '/dist',
@@ -25,8 +26,7 @@ module.exports = {
             "process.env.NODE_ENV": JSON.stringify("production")
         }),
         new webpack.optimize.CommonsChunkPlugin({
-            name: 'vendor',
-            filename: 'vendor.min.js'
+            names: ['vendor', 'immutable']
         }),
         new webpack.optimize.UglifyJsPlugin({
             sourceMap: false,
