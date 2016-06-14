@@ -11,7 +11,7 @@ module.exports = {
     },
     output: {
         path: __dirname + '/dist',
-        filename: '[name].bundle.min.js'
+        filename: '[name].min.js'
     },
     module: {
         loaders: [
@@ -28,10 +28,6 @@ module.exports = {
         new webpack.optimize.CommonsChunkPlugin({
             names: ['vendor', 'immutable']
         }),
-        new webpack.optimize.UglifyJsPlugin({
-            sourceMap: false,
-            mangle: false
-        })
-
+        new webpack.optimize.UglifyJsPlugin()
     ]
 };
