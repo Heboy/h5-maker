@@ -21,12 +21,46 @@ html, body {
     width: 400px;
     margin: 0 auto;
   }
-  .element-bar{
+  .element-bar {
     float: left;
     width: 70px;
   }
-  .page{
+  .page {
     float: left;
+  }
+  #error-bar {
+    position: fixed;
+    width: 40px;
+    height: 40px;
+    border-radius: 20px;
+    border: navajowhite;
+    outline: none;
+    background-color: #e60759;
+    right: 280px;
+    top: 10px;
+    cursor: pointer;
+    font-size: 14px;
+    color: white;
+    transition: background-color .3s,color .15s,box-shadow .3s,opacity 0.3s,width 0.3s,border-radius 0.3s;
+    &:hover{
+      border-radius: 0;
+      width: 100px;
+      box-shadow: 1px 1px 4px 1px #c2c2c2;
+      &:before{
+        content:'Error Console';
+        white-space: nowrap;
+      }
+    }
+    &:before{
+      content:"E";
+      display:block;
+      overflow: hidden;
+      height: 40px;
+      line-height: 40px;
+      font-size: 18px;
+      vertical-align: middle;
+      text-align: center;
+    }
   }
 }
 

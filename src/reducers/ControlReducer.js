@@ -1,8 +1,8 @@
 /**
  * Created by Soup Tang on 2016/4/22.
  */
-import Immutable from 'Immutable';
 import Values from '../helper/Values';
+import Immutable from 'immutable';
 import {Control} from '../helper/Entities';
 import AppStore from '../helper/AppStore';
 
@@ -37,6 +37,9 @@ module.exports = function (state = [], action) {
             return control;
         case Values.CONTROL.SET_FONT_SIZE:
             control = control.set('fontSize', action.size);
+            return control;
+        case Values.CONTROL.SET_BACKGROUND_COLOR:
+            control = control.set('backgroundColor', action.color);
             return control;
         default:
             return control;

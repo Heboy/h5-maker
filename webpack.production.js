@@ -4,7 +4,11 @@
 var webpack = require("webpack");
 
 module.exports = {
-    entry: {app: './src/components/App.js'},
+    entry: {
+        app: './src/components/Entry.js',
+        vendor: ["react", "react-dom"],
+        immutable: ["immutable"]
+    },
     output: {
         path: __dirname + '/dist',
         filename: '[name].bundle.min.js'
@@ -13,7 +17,7 @@ module.exports = {
         loaders: [
             {test: /\.css$/, loader: 'style!css'},
             {test: /.(png|jpg)$/, loader: "url-loader?limit=100000"},
-            {test: /\.js$/, loader: "babel-loader",query: {presets:['react','es2015']}},
+            {test: /\.js$/, loader: "babel-loader", query: {presets: ['react', 'es2015']}},
             {test: /\.scss$/, loader: "style!css!sass"}
         ]
     },
@@ -21,9 +25,13 @@ module.exports = {
         new webpack.DefinePlugin({
             "process.env.NODE_ENV": JSON.stringify("production")
         }),
+        new webpack.optimize.CommonsChunkPlugin({
+            names: ['vendor', 'immutable']
+        }),
         new webpack.optimize.UglifyJsPlugin({
             sourceMap: false,
             mangle: false
         })
+
     ]
 };

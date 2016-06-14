@@ -4,7 +4,7 @@
   "entry": {
     "index": "./src/components/App.js"
   },
-  "scripts":{
+  "scripts": {
     "dev": "set NODE_ENV=dev&& webpack -w",
     "production": "set NODE_ENV=production&& webpack"
   },
@@ -12,8 +12,9 @@
     "classname": "0.0.0",
     "immutable": "^3.7.6",
     "react": "^15.0.1",
+    "react-colorpicker": "https://github.com/Heboy/react-colorpicker.git",
     "react-dom": "^15.0.1",
-    "color-picker":"https://github.com/Heboy/color-picker.git",
+    "react-loading": "0.0.9",
     "react-select": "^1.0.0-beta11",
     "redux": "^3.3.1"
   },
@@ -27,6 +28,6 @@
     "node-sass": "^3.4.2",
     "sass-loader": "^3.1.2",
     "style-loader": "^0.13.0",
-    "webpack": "^1.12.11"
+    "webpack": "^1.13.1"
   }
 }

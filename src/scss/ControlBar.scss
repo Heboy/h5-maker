@@ -4,7 +4,8 @@ $tabBodyHeight: $tabHeight - $tabHeadHeight;
 $tabHeadBackgroundColor: #00bcd5;
 .control-bar {
   position: fixed;
-  top:0;
+  z-index: 999;
+  top: 0;
   right: 0;
   text-align: left;
   width: 260px;
@@ -22,7 +23,7 @@ $tabHeadBackgroundColor: #00bcd5;
     font-size: 0;
     background-color: $tabHeadBackgroundColor;
     border-bottom: none;
-    li{
+    li {
       display: flex;
       flex: 1;
     }
@@ -51,9 +52,17 @@ $tabHeadBackgroundColor: #00bcd5;
     .tab-main {
       display: none;
       font-size: 14px;
-      &.show{
+      &.show {
         display: block;
       }
     }
+  }
+  p.color-area {
+    display: inline-block;
+    vertical-align: middle;
+  }
+  div.color-area {
+    display: inline-block;
+    vertical-align: middle;
   }
 }

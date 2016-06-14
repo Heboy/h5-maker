@@ -32,7 +32,7 @@ class Element extends React.Component {
     render() {
         return (
             <div className={ClassName('element', this.props.className)}
-                 onMouseUp={this.props.onMouseUp.bind(null,this.props.element)}
+                 onMouseDown={this.props.onMouseDown.bind(null,this.props.element)}
                  style={this.setInlineStyle()}>
                 {this.props.children}
                 <RemovePoint onMouseUp={this.deleteElement.bind(this)}/>

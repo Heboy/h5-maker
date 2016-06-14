@@ -5,8 +5,7 @@
 import React from 'react';
 import ClassName from 'classname';
 import Select from 'react-select';
-import ColorPicker from 'color-picker';
-import 'color-picker/lib/ColorPicker.css';
+import ColorSelector from './ColorSelector';
 import Store from '../store/Store';
 import Values from '../helper/Values';
 import * as ElementsAction from '../actions/ElementsAction';
@@ -38,7 +37,7 @@ class ControlBar extends React.Component {
             case Values.ELEMENT.TYPE.PAGE:
                 return this.buildTab(['样式'], [this.backgroundColor()]);
             case Values.ELEMENT.TYPE.TEXT:
-                return this.buildTab(['样式', '动画'], [[this.fontTextAlign(), this.zIndex(), this.fontSize(), this.fontColor()],
+                return this.buildTab(['样式', '动画'], [[this.fontColor(), this.fontTextAlign(), this.zIndex(), this.fontSize()],
                     [this.animation(), this.animationDuration(), this.animationDelay()]]);
             case Values.ELEMENT.TYPE.IMAGE:
                 return this.buildTab(['样式', '动画'], [[this.zIndex()],
@@ -177,8 +176,8 @@ class ControlBar extends React.Component {
     fontColor() {
         return (
             <div key="control-bar-text-color">
-                <p>字体颜色：</p>
-                <ColorPicker width={'100%'} height={20} onChange={this.chooseColor}/>
+                <p className="color-area">字体颜色：</p>
+                <ColorSelector className="color-area" color={this.props.fontColor} onChange={this.chooseColor}/>
             </div>
         )
     }
@@ -186,8 +185,8 @@ class ControlBar extends React.Component {
     backgroundColor() {
         return (
             <div key="control-bar-text-color">
-                <p>背景颜色：</p>
-                <ColorPicker width={'100%'} height={20} onChange={this.chooseBackgroundColor}/>
+                <p className="color-area">背景颜色：</p>
+                <ColorSelector className="color-area" color={this.props.backgroundColor} onChange={this.chooseBackgroundColor}/>
             </div>
         )
     }

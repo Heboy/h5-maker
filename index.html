@@ -2,18 +2,37 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta id="viewport" name="viewport"
-          content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,minimal-ui">
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-status-bar-style" content="black"/>
     <title>H5Maker</title>
     <link rel="stylesheet" href="dist/animations.css">
     <link rel="stylesheet" href="dist/iconfont.css">
     <link rel="stylesheet" href="http://at.alicdn.com/t/font_1463984370_1564567.css">
 </head>
+<style>
+    .loading.block {
+        position: fixed;
+        background-color: rgba(0, 0, 0, .3);
+        width: 100%;
+        height: 100%;
+        z-index: 9999;
+        left: 0;
+        top: 0;
+    }
+
+    .loading > div {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        margin-left: -50px;
+        margin-top: -50px;
+        background-color: #333333;
+        border-radius: 5px;
+    }
+</style>
 <body>
+<div id="loading" class="loading block"></div>
 <div id="app"></div>
-<div id="out"></div>
 </body>
-<script src="dist/app.bundle.min.js"></script>
+<script src="dist/immutable.js"></script>
+<script src="dist/vendor.js"></script>
+<script src="dist/app.js"></script>
 </html>

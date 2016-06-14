@@ -2,8 +2,7 @@
  * Created by Soup Tang on 2016/1/22.
  */
 import React from 'react';
-import ReactDom from 'react-dom';
-import Immutable from 'Immutable';
+import Immutable from 'immutable';
 import Page from './Page';
 import ElementBar from './ElementBar';
 import PageList from './PageList';
@@ -19,8 +18,10 @@ class App extends React.Component {
         this.state = {
             pagesEntity: Immutable.Map(),
             elementsEntity: Immutable.Map(),
-            control: Immutable.Map()
-        }
+            control: Immutable.Map(),
+            errorBarComponent: null,
+            loadingComponent: null
+        };
     }
 
     componentWillMount() {
@@ -58,6 +59,9 @@ class App extends React.Component {
         else if (this.state.pagesEntity !== nextState.pagesEntity) {
             return true;
         }
+        else if (this.state.errorBarComponent !== nextState.errorBarComponent) {
+            return true;
+        }
         return false;
     }
 
@@ -67,6 +71,12 @@ class App extends React.Component {
         let currentPage = pages.get(pagesEntity.get('activeIndex'));
         let elements = elementsEntity.get('elements');
         let currentElement = elements.get(elementsEntity.get('activeIndex'));
+        if (currentPage) {
+            window.elements = currentPage.get('elementsEntity').get('elements');
+        }
+        if (currentElement) {
+            window.fontColor = currentElement.get('controlProps').get('fontColor');
+        }
         return (
             <div>
                 <PageList pages={pages} activeIndex={pagesEntity.get('activeIndex')}/>
@@ -76,6 +86,7 @@ class App extends React.Component {
                             animation={control.get('animation')}
                             fontSize={control.get('fontSize')}
                             fontColor={control.get('fontColor')}
+                            backgroundColor={control.get('backgroundColor')}
                             textAlign={control.get('textAlign')}
                             zIndex={elements.indexOf(currentElement)}
                             maxZIndex={elements.size}/>
@@ -145,7 +156,4 @@ class App extends React.Component {
     }
 }
 
-ReactDom.render(
-    <App/>,
-    document.getElementById('app')
-);
+module.exports = App;
