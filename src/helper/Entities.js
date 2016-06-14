@@ -1,7 +1,6 @@
 /**
  * Created by Soup Tang on 2016/4/18.
  */
-
 import Immutable from 'immutable';
 import Values from './Values';
 

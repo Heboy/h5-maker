@@ -6,11 +6,13 @@ var webpack = require('webpack');
 module.exports = {
     entry: {
         app: './src/components/Entry.js',
-        vendor: ["react", "react-dom"]
+        vendor: ["react", "react-dom"],
+        immutable: ["immutable"],
+        normalizr: ["normalizr"]
     },
     output: {
         path: __dirname + '/dist',
-        filename: '[name].bundle.js',
+        filename: '[name].js',
         publicPath: './dist/'
     },
     devtool: 'eval',
@@ -23,9 +25,13 @@ module.exports = {
         ]
     },
     plugins: [
+        //new webpack.ProvidePlugin({
+        //    React: 'react',
+        //    ReactDom: 'react-dom',
+        //    Immutable: 'immutable'
+        //}),//这个可以使jquery变成全局变量，妮不用在自己文件require('jquery')了
         new webpack.optimize.CommonsChunkPlugin({
-            name: 'vendor',
-            filename: 'vendor.js'
+            names: ['vendor', 'immutable', 'normalizr']
         })
     ]
 };

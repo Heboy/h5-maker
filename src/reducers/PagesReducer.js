@@ -1,8 +1,8 @@
 /**
  * Created by Soup Tang on 2016/4/25.
  */
-import Immutable from 'immutable';
 import Values from '../helper/Values';
+import Immutable from 'immutable';
 import {Page} from '../helper/Entities';
 import AppStore from '../helper/AppStore';
 

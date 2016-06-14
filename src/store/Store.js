@@ -5,7 +5,6 @@ import {createStore,applyMiddleware} from 'redux';
 import reducer from '../reducers/App';
 import Values from '../helper/Values';
 import AppStore from '../helper/AppStore';
-import Immutable from 'immutable';
 
 const logger = store => next => action => {
     console.group(action.type);
@@ -47,9 +46,11 @@ const mixReducers = store => next => action => {
         store.getState().pagesEntity = pagesEntity.set('pages', pages.set(pageActiveIndex, page.set('elementsEntity', elementsEntity)))
     }
     if (AppStore.switchPage(action)) {
-        if(pageActiveIndex!==null){
+        elementsEntity = pagesEntity.get('pages').get(pageActiveIndex).get('elementsEntity');
+        elements = elementsEntity.get('elements');
+        elementsActiveIndex = elementsEntity.get('activeIndex');
+        element = elements.get(elementsActiveIndex);
 
-        }
         if (elementsActiveIndex !== null) {
             store.getState().control = element.get('controlProps');
         }

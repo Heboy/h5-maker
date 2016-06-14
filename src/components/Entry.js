@@ -3,18 +3,19 @@
  */
 import React from 'react';
 import ReactDom from 'react-dom';
+import Immutable from 'immutable';
 import Loading from 'react-loading';
 
 //入口提供浏览器检测与loading
 let loadingDom = document.querySelector('#loading');
-class Entry extends React.Component{
+class Entry extends React.Component {
 
-    constructor(props){
+    constructor(props) {
         super(props);
     }
 
-    componentDidMount(){
-        require.ensure(['immutable'], function () {
+    componentDidMount() {
+        require.ensure([], function () {
             let App = require('./App.js');
             ReactDom.render(<App/>,document.querySelector('#app'));
             loadingDom.classList.remove('block');
@@ -22,11 +23,11 @@ class Entry extends React.Component{
         });
     }
 
-    render(){
-        return(
+    render() {
+        return (
             <Loading type='balls' color='#ffffff'/>
         )
     }
 }
 
-ReactDom.render(<Entry/>,loadingDom);
+ReactDom.render(<Entry/>, loadingDom);
