@@ -26,13 +26,9 @@ class ElementBar extends React.Component {
                         <i className="iconfont icon-picturelarge"></i>
                         图片
                     </li>
-                    <li onClick={this.previewHandle.bind(this)}>
+                    <li onClick={this.saveHandle.bind(this)}>
                         <i className="iconfont icon-ceshi"></i>
                         预览
-                    </li>
-                    <li onClick={this.saveHandle.bind(this)}>
-                        <i className="iconfont icon-save"></i>
-                        保存
                     </li>
                 </ul>
             </div>
