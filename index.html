@@ -27,11 +27,26 @@
         background-color: #333333;
         border-radius: 5px;
     }
+
+    iframe {
+        position: absolute;
+        z-index: 99;
+        right: 280px;
+        top: 10px;
+    }
 </style>
 <body>
 <div id="loading" class="loading block"></div>
+<!-- Place this tag where you want the button to render. -->
+<a class="github-button"
+   href="https://github.com/heboy/h5-maker" data-icon="octicon-star"
+   data-style="mega"
+   data-count-href="/heboy/h5-maker/stargazers" data-count-api="/repos/heboy/h5-maker#stargazers_count"
+   data-count-aria-label="# stargazers on GitHub" aria-label="Star heboy/h5-maker on GitHub">Star</a>
 <div id="app"></div>
 </body>
+<!-- Place this tag in your head or just before your close body tag. -->
+<script async defer src="https://buttons.github.io/buttons.js"></script>
 <script src="dist/immutable.min.js"></script>
 <script src="dist/vendor.min.js"></script>
 <script src="dist/app.min.js"></script>
