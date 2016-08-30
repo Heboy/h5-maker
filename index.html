@@ -8,28 +8,89 @@
     <link rel="stylesheet" href="http://at.alicdn.com/t/font_1463984370_1564567.css">
 </head>
 <style>
-    .loading.block {
+    .ui-loading-block.show {
+        display: -webkit-box;
+        display: flex;
+        display: -webkit-flex;
+    }
+
+    .ui-loading-block {
         position: fixed;
-        background-color: rgba(0, 0, 0, .3);
+        top: 0;
+        left: 0;
         width: 100%;
         height: 100%;
         z-index: 9999;
-        left: 0;
-        top: 0;
+        display: -webkit-box;
+        display: flex;
+        display: -webkit-flex;
+        -webkit-box-orient: horizontal;
+        -webkit-box-pack: center;
+        -webkit-box-align: center;
+        -webkit-align-items: center;
+        align-items: center;
+        justify-content: center;
+        -webkit-justify-content: center;
+        background: rgba(0, 0, 0, .4);
+        display: none;
+        background: transparent;
     }
 
-    .loading > div {
-        position: absolute;
-        left: 50%;
-        top: 50%;
-        margin-left: -50px;
-        margin-top: -50px;
-        background-color: #333333;
-        border-radius: 5px;
+    .ui-loading-block .ui-loading-cnt {
+        width: 130px;
+        height: 110px;
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+        -webkit-box-align: center;
+        text-align: center;
+        background: rgba(0, 0, 0, .65);
+        border-radius: 6px;
+        color: #fff;
+        font-size: 16px;
+    }
+
+    .ui-loading-block .ui-loading-bright {
+        margin: 18px 0 8px;
+    }
+
+    .ui-loading-bright {
+        width: 37px;
+        height: 37px;
+        display: block;
+        background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAQAAAAAYLlVAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAAAmJLR0QA/4ePzL8AAAV3SURBVGje7dnbb9xHFQfwz2/Xa3vXl924sRslVZxCLkAupWpUkSJgWqhouRTyUAko4gEknvov8DfAExKIi4RAQrxAqUAVLWUqFdLStNxKcyttkiYmTuI4Tnxdr3d5sJvae/0FRwoSPm/7mzPnfM93Zs6cM8uG3GZJ1jM51iCsy0bmdjOwAaCr/XAclPdFX/bT8IObMRsTPTIWwtJ6GdjjgK/ZbW8s3lRgOV2yejordgJw2RX9eMgTNxV/l0RNdd0AwtuO+ZFxwz4T74rZlO5zMliysH4GhFnf9Qbe5xv6UhGQ6JaoWQq1WwCAsOhXTin5gpGU8UPFYhq06Y7hr72MTZ6MoyksdktUVdLEnxJAWPC8t/R43Ac6xJ9ZiX9RxwPYBEBM4kBsnhminyDxWNzT1l6XHKrN1z9mGrfxWgYSeYMxHxuulzDviGOWHPZw2/izqCk3O4AxkZHU214LoNsTvuOr+ptYP+2HZnEoHmiJIKeLluufU1Ksz72rfsYdNjmsYIv98QW/CfNrOLgen/eIT3rQW/7eNP6sLKoWG93HnIJuOfSbbAHAnMSzHjTkAaN2xiNeDTOrxif82KhdQvxS+HkDvXQvAwiLDc579Kyk5QXllgyEceK3nfMxO2zzuPs8E//o3LsgwqI/xEftcod71QFAIrMcfx0rOXl5UFE2FxbqpzVSOeIrPm1QD074hRddDyu44+d83XXfC39qmJXIyam85yAmuvQpsAJsOjRJzc0AZPS6y2MO61E17Z+e8kJIldfWxN4nLyPBohnzas22Zst6Lt5pj0dXDt1Zr3s6vJLaeUZBry4ZVMxaaJ0X2xaUcZdD7vcR8GfPhl+mcp4Y0LvifMGChXZJuW1FFE45FY866167fNipVOEnMnpkVJXNme90I6QqqWPwpCnfCmOptBMFBWXTnQuyDdmQG5swPt1JMXz+ZszG+zrrhFf5H+iMbjuADbntki4Vb/VZ/CzMptLOuFPJlAshRW/Y1dHcoEP2GlXxsKdSuM/K2apgUH+8FCY76bcFEPvss88HDeBCOkpRU5GVl1eIJVfCVDvl1gVJnxH7fVQJ15zxNyfCxTT+Y6JkWHGllZ00birM3RSAmNPnoIfcgXmTXvZiuJ6agWUbJdsNykrUXHTebPNuqckSxMRBjyjKY97vHTXxbjEdd7nHtJfC1YZZGUP2uBROrnyYclzRNiWJYZtMOGsuBYB4v4O22YyKI44aC9dWDe+015Sq39XN6tXtQ4qWYmkZXKgpxwmzirYY1G1Ef5x0of4kre6M+vT6hP22YsExx70eLq0az9piVKJqZVvFb0L4PqqWVDFsxg12QtVMnDVns5I+AwrycSJcaAFATsGnZJW946QjYbyOnJxDhnHOa/W8hXKsOG6fAUNxyNX3MkComYxThm02oNewuvO0ujO6Gue9ZL83/LbBuZix1ftlnfGXZj1CqLocrxkwaLfX1jZgoWo8XjJiuyV1deXaPVD2nOdcN9PowGYf143z4W2t5Ky8IUXFeLl+x4dqvGhaxvTa7/XX8bxpc01T6BY7ZJ12oqV74bJx5Ow20JSjRZV62111Kleam447LNc4fw1ntJPLLthiyHCcbgyjWW+YtiDZY9SSN51vrxauGlPF9jQvaqkBxHvsxJwjrRhaJZPGLOk3dAsB2GlY2UljKXqdOWctYiRuuyUAYlc8YBsmvJLm6TXUXDOuYsDW2N1Zv9Nz/YC8BwwpezP8OxVbVJxWVFJyd7szk46BfgOKOO0fKd0LtbDMQa/N62bAjIrj7vavdLXADXlHQUkKzjoBmDbtGYU0q7+Ghbl4TDbNrA4AQhULUZq/HuqkYinN+0DHopTmGazjnP/msXpD/i/lPz6uzqlaqXFCAAAAJXRFWHRkYXRlOmNyZWF0ZQAyMDE1LTA3LTI1VDIxOjQ5OjI3KzA4OjAw56k66QAAACV0RVh0ZGF0ZTptb2RpZnkAMjAxMy0wMy0xM1QxMDozODoyOCswODowMJwgFV0AAABOdEVYdHNvZnR3YXJlAEltYWdlTWFnaWNrIDYuOC44LTEwIFExNiB4ODZfNjQgMjAxNS0wNy0xOSBodHRwOi8vd3d3LmltYWdlbWFnaWNrLm9yZwUMnDUAAAAYdEVYdFRodW1iOjpEb2N1bWVudDo6UGFnZXMAMaf/uy8AAAAXdEVYdFRodW1iOjpJbWFnZTo6SGVpZ2h0ADY0vOCphAAAABZ0RVh0VGh1bWI6OkltYWdlOjpXaWR0aAA2NERPaQkAAAAZdEVYdFRodW1iOjpNaW1ldHlwZQBpbWFnZS9wbmc/slZOAAAAF3RFWHRUaHVtYjo6TVRpbWUAMTM2MzE0MjMwOCdXorMAAAATdEVYdFRodW1iOjpTaXplADEuOTNLQkJrxE0uAAAAWnRFWHRUaHVtYjo6VVJJAGZpbGU6Ly8vaG9tZS93d3dyb290L3d3dy5lYXN5aWNvbi5uZXQvY2RuLWltZy5lYXN5aWNvbi5jbi9zcmMvMTA5ODkvMTA5ODkzMS5wbmeTNTIeAAAAAElFTkSuQmCC);
+        -webkit-background-size: auto 37px;
+        -webkit-animation: spin linear 1s infinite;
+        animation: spin linear 1s infinite;
+    }
+    @keyframes spin {
+        0% {
+            transform: rotate(0deg);
+            -webkit-transform: rotate(0deg);
+        }
+        100% {
+            transform: rotate(360deg);
+            -webkit-transform: rotate(360deg);
+        }
+    }
+
+    @-webkit-keyframes spin {
+        0% {
+            transform: rotate(0deg);
+            -webkit-transform: rotate(0deg);
+        }
+        100% {
+            transform: rotate(360deg);
+            -webkit-transform: rotate(360deg);
+        }
     }
 </style>
 <body>
-<div id="loading" class="loading block"></div>
+<div class="ui-loading-block show" id="loading">
+    <div class="ui-loading-cnt">
+        <i class="ui-loading-bright"></i>
+        <p>加载中...</p>
+    </div>
+</div>
 <div id="app"></div>
 </body>
 <script src="dist/immutable.js"></script>

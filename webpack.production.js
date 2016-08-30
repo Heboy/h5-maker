@@ -5,13 +5,13 @@ var webpack = require("webpack");
 
 module.exports = {
     entry: {
-        app: './src/components/Entry.js',
+        app: './src/components/App.js',
         vendor: ["react", "react-dom"],
         immutable: ["immutable"]
     },
     output: {
         path: __dirname + '/dist',
-        filename: '[name].bundle.min.js'
+        filename: '[name].js'
     },
     module: {
         loaders: [

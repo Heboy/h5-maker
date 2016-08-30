@@ -2,6 +2,7 @@
  * Created by Soup Tang on 2016/1/22.
  */
 import React from 'react';
+import ReactDom from 'react-dom';
 import Immutable from 'immutable';
 import Page from './Page';
 import ElementBar from './ElementBar';
@@ -37,6 +38,7 @@ class App extends React.Component {
 
     //初始化的时候设置对store的侦听
     componentDidMount() {
+        document.querySelector('#loading').classList.remove('show');
         window.addEventListener('keydown', function (e) {
             switch (e.keyCode) {
                 case 46://删除
@@ -156,4 +158,4 @@ class App extends React.Component {
     }
 }
 
-module.exports = App;
+ReactDom.render(<App/>, document.querySelector('#app'));
