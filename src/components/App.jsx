@@ -4,14 +4,16 @@
 import React from 'react';
 import ReactDom from 'react-dom';
 import Immutable from 'immutable';
-import Page from './Page';
-import ElementBar from './ElementBar';
-import PageList from './PageList';
-import ControlBar from './ControlBar';
+import Page from './Page.jsx';
+import ElementBar from './ElementBar.jsx';
+import PageList from './PageList.jsx';
+import ControlBar from './ControlBar.jsx';
 import Store from '../store/Store';
 import * as ElementsAction from '../actions/ElementsAction';
 import '../scss/App.scss';
 
+console.log(ReactDom);
+console.log(React);
 class App extends React.Component {
 
     constructor(props) {

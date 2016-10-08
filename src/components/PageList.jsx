@@ -4,7 +4,7 @@
 
 import React from 'react';
 import ClassName from'classname';
-import RemovePoint from'./RemovePoint';
+import RemovePoint from'./RemovePoint.jsx';
 import * as PagesAction from '../actions/PagesAction';
 import Store from '../store/Store';
 import AppStore from '../helper/AppStore';

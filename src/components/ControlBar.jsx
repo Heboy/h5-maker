@@ -5,7 +5,7 @@
 import React from 'react';
 import ClassName from 'classname';
 import Select from 'react-select';
-import ColorSelector from './ColorSelector';
+import ColorSelector from './ColorSelector.jsx';
 import Store from '../store/Store';
 import Values from '../helper/Values';
 import * as ElementsAction from '../actions/ElementsAction';

@@ -6,8 +6,8 @@ import ClassName from 'classname';
 import AppStore from '../helper/AppStore';
 import Store from '../store/Store';
 import * as ElementsAction from '../actions/ElementsAction';
-import Element from './Element';
-import Text from './Text';
+import Element from './Element.jsx';
+import Text from './Text.jsx';
 import Values from '../helper/Values';
 import '../scss/Page.scss';
 

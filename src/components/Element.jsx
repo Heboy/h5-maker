@@ -5,7 +5,7 @@
 import React from 'react';
 import ClassName from 'classname';
 import Store from '../store/Store';
-import RemovePoint from './RemovePoint';
+import RemovePoint from './RemovePoint.jsx';
 import * as ElementsAction from '../actions/ElementsAction';
 import '../scss/Element.scss';
 
