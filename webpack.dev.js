@@ -11,7 +11,7 @@ module.exports = {
     path: __dirname + '/dist',
     filename: '[name].js',
     publicPath: './dist/',
-    libraryTarget: "umd"
+    libraryTarget: 'umd'
   },
   devtool: 'source-map',
   externals: [{
@@ -24,9 +24,9 @@ module.exports = {
   module: {
     loaders: [
       { test: /\.css$/, loader: 'style!css' },
-      { test: /.(png|jpg)$/, loader: "url-loader?limit=100000" },
-      { test: /\.(js|jsx)$/, loader: "babel-loader", query: { presets: ['react', 'es2015'] } },
-      { test: /\.scss$/, loader: "style!css!sass" }
+      { test: /.(png|jpg)$/, loader: 'url-loader?limit=100000' },
+      { test: /\.(js|jsx)$/, loader: 'babel-loader', query: { presets: ['react', 'es2015'] } },
+      { test: /\.scss$/, loader: 'style!css!sass' }
     ]
   },
   plugins: [
