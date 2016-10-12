@@ -28,15 +28,5 @@ module.exports = {
       { test: /\.(js|jsx)$/, loader: 'babel-loader', query: { presets: ['react', 'es2015'] } },
       { test: /\.scss$/, loader: 'style!css!sass' }
     ]
-  },
-  plugins: [
-    //new webpack.ProvidePlugin({
-    //    React: 'react',
-    //    ReactDom: 'react-dom',
-    //    Immutable: 'immutable'
-    //}),//这个可以使jquery变成全局变量，妮不用在自己文件require('jquery')了
-    // new webpack.optimize.CommonsChunkPlugin({
-    //   names: ['immutable']
-    // })
-  ]
+  }
 };
