@@ -6,10 +6,7 @@
   <title>H5Maker</title>
   <link rel="stylesheet" href="dist/animations.css">
   <link rel="stylesheet" href="dist/iconfont.css">
-  <link rel="stylesheet" href="dist/iconfont.css">
-  <script src="//cdn.bootcss.com/react/15.3.2/react.min.js"></script>
-  <script src="//cdn.bootcss.com/react/15.3.2/react-dom.min.js"></script>
-  <script src="//cdn.bootcss.com/immutable/3.8.1/immutable.min.js"></script>
+  <script async defer src="//buttons.github.io/buttons.js"></script>
 </head>
 <style>
   .ui-loading-block.show {
@@ -88,9 +85,18 @@
       -webkit-transform: rotate(360deg);
     }
   }
+  
+  iframe {
+    position: absolute;
+    z-index: 99;
+    right: 280px;
+    top: 10px;
+  }
 </style>
 
 <body>
+  <a class="github-button" href="https://github.com/heboy/h5-maker" data-icon="octicon-star" data-style="mega" data-count-href="/heboy/h5-maker/stargazers" data-count-api="/repos/heboy/h5-maker#stargazers_count" data-count-aria-label="# stargazers on GitHub"
+    aria-label="Star heboy/h5-maker on GitHub">Star</a>
   <div class="ui-loading-block show" id="loading">
     <div class="ui-loading-cnt">
       <i class="ui-loading-bright"></i>
@@ -99,7 +105,7 @@
   </div>
   <div id="app"></div>
 </body>
-
-<script src="./dist/app.js"></script>
-
+<script src="//cdn.bootcss.com/react/15.3.2/react.min.js"></script>
+<script src="//cdn.bootcss.com/react/15.3.2/react-dom.min.js"></script>
+<script src="//cdn.bootcss.com/immutable/3.8.1/immutable.min.js"></script>
 </html>
